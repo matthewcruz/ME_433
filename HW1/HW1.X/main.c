@@ -30,11 +30,11 @@
 #pragma config UPLLEN = ON // USB clock on
 
 // DEVCFG3
-#pragma config USERID = 0 // some 16bit userid, doesn't matter what
-#pragma config PMDL1WAY = x // allow multiple reconfigurations
-#pragma config IOL1WAY = x // allow multiple reconfigurations
-#pragma config FUSBIDIO = x // USB pins controlled by USB module
-#pragma config FVBUSONIO = x // USB BUSON controlled by USB module
+#pragma config USERID = 33 // some 16bit userid, doesn't matter what
+#pragma config PMDL1WAY = OFF // allow multiple reconfigurations
+#pragma config IOL1WAY = OFF // allow multiple reconfigurations
+#pragma config FUSBIDIO = ON // USB pins controlled by USB module
+#pragma config FVBUSONIO = ON // USB BUSON controlled by USB module
 
 
 int main() {
@@ -54,12 +54,25 @@ int main() {
     DDPCONbits.JTAGEN = 0;
     
     // do your TRIS and LAT commands here
+    //set port4A to digital out
+    TRISAbits.TRISA4 = 0;
+    LATAbits.LATA4 = 1;
+    _CP0_SET_COUNT(0);
     
     __builtin_enable_interrupts();
     
     while(1) {
 	    // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
 		// remember the core timer runs at half the CPU speed
+                
+        if (_CP0_GET_COUNT()>24000){
+            //change LED state
+            LATAbits.LATA4 = !LATAbits.LATA4;
+            //LATAbits.LATA4 = 0;
+            _CP0_SET_COUNT(0);
+        //LATAbits.LATA4 =1;
+        }
+                
     }
     
     
