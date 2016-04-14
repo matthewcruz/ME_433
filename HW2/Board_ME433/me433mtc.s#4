@@ -10109,10 +10109,10 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <text x="0" y="12.7" size="1.27" layer="94">&gt;VALUE</text>
 </symbol>
 <symbol name="PIC32">
-<wire x1="-15.24" y1="25.4" x2="-15.24" y2="-17.78" width="0.254" layer="94"/>
+<wire x1="-15.24" y1="20.32" x2="-15.24" y2="-17.78" width="0.254" layer="94"/>
 <wire x1="-15.24" y1="-17.78" x2="17.78" y2="-17.78" width="0.254" layer="94"/>
-<wire x1="17.78" y1="-17.78" x2="17.78" y2="25.4" width="0.254" layer="94"/>
-<wire x1="17.78" y1="25.4" x2="-15.24" y2="25.4" width="0.254" layer="94"/>
+<wire x1="17.78" y1="-17.78" x2="17.78" y2="20.32" width="0.254" layer="94"/>
+<wire x1="17.78" y1="20.32" x2="-15.24" y2="20.32" width="0.254" layer="94"/>
 <pin name="1.MCLR" x="-17.78" y="17.78" length="middle"/>
 <pin name="2.A0" x="-17.78" y="15.24" length="middle"/>
 <pin name="3.A1" x="-17.78" y="12.7" length="middle"/>
@@ -14067,7 +14067,7 @@ Standard 8-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="+3V5" library="mtcboard" deviceset="+3V3" device=""/>
 <part name="GND12" library="mtcboard" deviceset="GND" device=""/>
 <part name="Y1" library="mtcboard" deviceset="RESONATOR" device="" value="8MHz"/>
-<part name="IC1" library="mtcboard" deviceset="PIC32" device=""/>
+<part name="IC1" library="mtcboard" deviceset="PIC32" device="" value="PIC32MX250F128B"/>
 <part name="GND13" library="mtcboard" deviceset="GND" device=""/>
 <part name="GND14" library="mtcboard" deviceset="GND" device=""/>
 <part name="GND15" library="mtcboard" deviceset="GND" device=""/>
