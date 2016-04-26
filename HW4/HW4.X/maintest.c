@@ -1,5 +1,8 @@
-#include<xc.h>           // processor SFR definitions
-#include<sys/attribs.h>  // __ISR macro
+#include <xc.h>           // processor SFR definitions
+#include <sys/attribs.h>  // __ISR macro
+#include "math.h"
+#include "spicomm.h"
+#include "i2c_master_noint.h"
 
 // DEVCFG0
 #pragma config DEBUG = OFF // no debugging
@@ -57,20 +60,38 @@ int main() {
     //set port4A to digital out
     TRISAbits.TRISA4 = 0;
     LATAbits.LATA4 = 1;
+    TRISBbits.TRISB7 = 0;
     _CP0_SET_COUNT(0);
     
     __builtin_enable_interrupts();
     
-    while(1) {
-	    // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
-		// remember the core timer runs at half the CPU speed
-                
-        if (_CP0_GET_COUNT()>24000){
-            //change LED state
-            LATAbits.LATA4 = !LATAbits.LATA4;
-            //LATAbits.LATA4 = 0;
+    //initialize SPI
+    initSPI1();
+    initI2C2();
+    //initExpander();
+    char voltage1=0, chann=0;
+    float spi_scale = 122.0;
+    unsigned char wave[1000];
+    unsigned char triangle[1000];
+    //end SPI initialization
+    int i = 0;
+    for (i=0; i<1000; i++){
+        wave[i] = (unsigned char)(123 + spi_scale*sin(6.28*i/(1000.)));
+        triangle[i] = (unsigned char)255*i/1000.;
+    }
+    i=0;
+    
+    while(1){
+
+        if (_CP0_GET_COUNT()>2400){
+            setVoltage(0, wave[i]);   
+            setVoltage(1,triangle[i]);
+            LATAbits.LATA4 = !LATAbits.LATA4; //change LED state
             _CP0_SET_COUNT(0);
-        //LATAbits.LATA4 =1;
+            i++;
+        }
+        if (i>999){
+            i=0;
         }
                 
     }
