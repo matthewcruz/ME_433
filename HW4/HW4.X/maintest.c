@@ -105,9 +105,9 @@ int main() {
         }
         
         if ((getExpander()>>7)&0x01 == 1){
-            setExpander(0,1);
+            setExpander(0,0);
         }
-        else {setExpander(0,0);}
+        else {setExpander(0,1);}
         
                 
     }

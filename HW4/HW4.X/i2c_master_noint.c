@@ -30,6 +30,15 @@ void initExpander(){
     i2c_master_send(reg); // the register to write to
     i2c_master_send(outval); // the value to put in the register
     i2c_master_stop(); // make the stop bit
+    
+    i2c_master_start(); // make the start bit
+    i2c_master_send(add<<1|0); // write the address, shifted left by 1, or'ed with a 0 to indicate writing
+    i2c_master_send(0x06); // the register to write to
+    i2c_master_send(0xF0); // the value to put in the register
+    i2c_master_stop(); // make the stop bit
+    
+    
+    
 }
 
 void setExpander(char pin, char level){
