@@ -5,6 +5,9 @@
 #include <xc.h>
 #include "i2c_master_noint.h"
 
+#define add 0x20
+char reg = 0x00;
+char outval = 0xF0;
 
 void initI2C2(){
     //notes - I2C2 
@@ -19,22 +22,22 @@ void initExpander(){
     //set the expander pins using IODIR registrt at address 0x00  bit=1 is input
     //address is set with 0100A2A1A0, where each A is set externally, set all high
     //add then becomes 0100111
-    char reg = 0x00;
-    char outval = 0xF0; //same as 0b11110000
-    char add = 0x20;//0b0100000;
+    reg = 0x00;
+    outval = 0xF0; //same as 0b11110000
+    //char add = 0x20;//0b0100000;
     i2c_master_start(); // make the start bit
-    i2c_master_send(add<1|0); // write the address, shifted left by 1, or'ed with a 0 to indicate writing
+    i2c_master_send(add<<1|0); // write the address, shifted left by 1, or'ed with a 0 to indicate writing
     i2c_master_send(reg); // the register to write to
     i2c_master_send(outval); // the value to put in the register
     i2c_master_stop(); // make the stop bit
 }
 
 void setExpander(char pin, char level){
-    char add = 0x20;//0b0100000;
-    char reg = 0x09; //GPIO
-    char outval = level << pin;
+    //char add = 0x20;//0b0100000;
+    reg = 0x09; //GPIO
+    outval = level << pin;
     i2c_master_start(); // make the start bit
-    i2c_master_send(add<1|0); // write the address, shifted left by 1, or'ed with a 0 to indicate writing
+    i2c_master_send(add<<1|0); // write the address, shifted left by 1, or'ed with a 0 to indicate writing
     i2c_master_send(reg); // the register to write to
     i2c_master_send(outval); // the value to put in the register
     i2c_master_stop(); // make the stop bit
@@ -42,13 +45,13 @@ void setExpander(char pin, char level){
 
 
 char getExpander(){
-    char reg= 0x09; 
-    char add = 0x20;//0b0100000;
+    reg= 0x09; 
+    //char add = 0x20;//0b0100000;
     i2c_master_start(); // make the start bit
-    i2c_master_send(add<1|0); // write the address, shifted left by 1, or'ed with a 0 to indicate writing
+    i2c_master_send(add<<1|0); // write the address, shifted left by 1, or'ed with a 0 to indicate writing
     i2c_master_send(reg); // the register to read from
     i2c_master_restart(); // make the restart bit
-    i2c_master_send(add<1|1); // write the address, shifted left by 1, or'ed with a 1 to indicate reading
+    i2c_master_send(add<<1|1); // write the address, shifted left by 1, or'ed with a 1 to indicate reading
     char r = i2c_master_recv(); // save the value returned
     i2c_master_ack(1); // make the ack so the slave knows we got it
     i2c_master_stop(); // make the stop bit
@@ -58,10 +61,10 @@ char getExpander(){
 
 
 void i2c_master_setup(void) {
-  I2C2BRG = 233;//???some number for 100kHz;  using Fsck as what i want and Pblck as resonator clock
+  I2C2BRG = 200;//233;//???some number for 100kHz;  using Fsck as what i want and Pblck as resonator clock
                                     // I2CBRG = [1/(2*Fsck) - PGD]*Pblck - 2 
                                     // look up PGD for your PIC32 PGD is between 50 and 300 ns
-  I2C2CONbits.ON = 1;               // turn on the I2C2 module
+  I2C2CONbits.ON = 1;                // turn on the I2C2 module
 }
 
 // Start a transmission on the I2C bus

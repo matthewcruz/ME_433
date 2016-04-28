@@ -65,14 +65,17 @@ int main() {
     
     __builtin_enable_interrupts();
     
-    //initialize SPI
+    //initialize SPI and I2C
     initSPI1();
     initI2C2();
-    //initExpander();
+    initExpander();
+    
+    //Declare variables
     char voltage1=0, chann=0;
     float spi_scale = 122.0;
     unsigned char wave[1000];
     unsigned char triangle[1000];
+    int level = 0;
     //end SPI initialization
     int i = 0;
     for (i=0; i<1000; i++){
@@ -87,6 +90,11 @@ int main() {
             setVoltage(0, wave[i]);   
             setVoltage(1,triangle[i]);
             LATAbits.LATA4 = !LATAbits.LATA4; //change LED state
+            if (level == 0){
+                level =1;
+            }
+            else{ level = 0;}
+            setExpander(0, level);
             _CP0_SET_COUNT(0);
             i++;
         }
