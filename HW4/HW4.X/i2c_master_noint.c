@@ -45,7 +45,6 @@ void setExpander(char pin, char level){
 
 
 char getExpander(){
-    reg= 0x09; 
     //char add = 0x20;//0b0100000;
     i2c_master_start(); // make the start bit
     i2c_master_send(add<<1|0); // write the address, shifted left by 1, or'ed with a 0 to indicate writing
@@ -61,7 +60,7 @@ char getExpander(){
 
 
 void i2c_master_setup(void) {
-  I2C2BRG = 200;//233;//???some number for 100kHz;  using Fsck as what i want and Pblck as resonator clock
+  I2C2BRG = 53;//233;//???some number for 100kHz;  using Fsck as what i want and Pblck as resonator clock
                                     // I2CBRG = [1/(2*Fsck) - PGD]*Pblck - 2 
                                     // look up PGD for your PIC32 PGD is between 50 and 300 ns
   I2C2CONbits.ON = 1;                // turn on the I2C2 module

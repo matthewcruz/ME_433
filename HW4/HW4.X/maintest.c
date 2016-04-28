@@ -86,21 +86,29 @@ int main() {
     
     while(1){
 
-        if (_CP0_GET_COUNT()>2400){
-            setVoltage(0, wave[i]);   
-            setVoltage(1,triangle[i]);
-            LATAbits.LATA4 = !LATAbits.LATA4; //change LED state
-            if (level == 0){
-                level =1;
-            }
-            else{ level = 0;}
-            setExpander(0, level);
-            _CP0_SET_COUNT(0);
-            i++;
-        }
+//        if (_CP0_GET_COUNT()>2400){
+////            if (level == 0){
+////                level =1;
+////            }
+//            level = (level^1) & 0x1;
+////            else{ level = 0;}
+//            setExpander(0, level);
+//            setVoltage(0, wave[i]);   
+//            setVoltage(1,triangle[i]);
+//            LATAbits.LATA4 = !LATAbits.LATA4; //change LED state
+//
+//            _CP0_SET_COUNT(0);
+//            i++;
+//        }
         if (i>999){
             i=0;
         }
+        
+        if ((getExpander()>>7)&0x01 == 1){
+            setExpander(0,1);
+        }
+        else {setExpander(0,0);}
+        
                 
     }
     
