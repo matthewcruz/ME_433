@@ -39,7 +39,11 @@
 #pragma config FUSBIDIO = ON // USB pins controlled by USB module
 #pragma config FVBUSONIO = ON // USB BUSON controlled by USB module
 
-
+void __ISR(_TIMER_2_VECTOR, IPL5SOFT) PWM(void){
+    OC1RS = 1500;
+    OC2RS = 1500; 
+    IFS0bits.T2IF = 0;
+}
 int main() {
 
     __builtin_disable_interrupts();
@@ -59,54 +63,52 @@ int main() {
     // do your TRIS and LAT commands here
     //set port4A to digital out
     TRISAbits.TRISA4 = 0;
-    LATAbits.LATA4 = 1;
+    LATAbits.LATA4 = 0;
     TRISBbits.TRISB7 = 0;
-    _CP0_SET_COUNT(0);
-    
-    __builtin_enable_interrupts();
-    
-    //initialize SPI and I2C
-    initSPI1();
+     
+    //initialize SPI and I2C and Output compare
+    initOC(); //remap pins 2,3 (A0 and A1) to OC1 and OC2
+    //initSPI1();
     initI2C2();
     initGyro();
     //initExpander();
+    __builtin_enable_interrupts();
+    
+    _CP0_SET_COUNT(0);
     
     //Declare variables
     char voltage1=0, chann=0;
     float spi_scale = 122.0;
-    unsigned char wave[1000];
-    unsigned char triangle[1000];
-    int level = 0;
-    //end SPI initialization
-    int i = 0;
+    unsigned char wave[1000], triangle[1000];
+    int level = 0, i = 0;
+    
+    //make a triangle and sin wave
     for (i=0; i<1000; i++){
         wave[i] = (unsigned char)(123 + spi_scale*sin(6.28*i/(1000.)));
         triangle[i] = (unsigned char)255*i/1000.;
     }
-    i=0;
     
     //registers to use: 
-    //autoincrement automatically turned on IF_INC field in CtRL3_C register
     //the out x_Lg are 16 bit two's complement
     //outx_lg 22h _h is 23h
     //outy_Lg 24h        25h
     //outz_lg 26h    27h
     //out_temp_l 20h, out_temp 21h
-    //who_am_i OFh
-    //
-    
+
+    unsigned char val = 0x00;
     while(1){
-
-           if (_CP0_GET_COUNT()>2400){
-            LATAbits.LATA4 = !LATAbits.LATA4; //change LED state
-
+            
+            
+            if (_CP0_GET_COUNT()>240000){
+            //LATAbits.LATA4 = 1;
+            val = getWho();
+                if (val==0x69 ){
+                     LATAbits.LATA4 = !LATAbits.LATA4;
+                }
             _CP0_SET_COUNT(0);
-            i++;
-            }
-
-        
+            
+            }       
                 
     }
-    
-    
+     
 }
