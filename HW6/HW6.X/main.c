@@ -39,9 +39,13 @@
 #pragma config FUSBIDIO = ON // USB pins controlled by USB module
 #pragma config FVBUSONIO = ON // USB BUSON controlled by USB module
 
+//Global Variables
+signed short temp = 0,accel_x= 0, accel_y=0, accel_z=0, gyro_x=0, gyro_y=0, gyro_z=0;
+
+
 void __ISR(_TIMER_2_VECTOR, IPL5SOFT) PWM(void){
-    OC1RS = 1500;
-    OC2RS = 1500; 
+    OC1RS = 3000*(float)(accel_x + (0xFFFF/2) + 1)/0XFFFF; // OC1RS = 1500;
+    OC2RS = 3000*(float)(accel_y + (0xFFFF/2) + 1)/0xFFFF; // OC2RS = 1500;
     IFS0bits.T2IF = 0;
 }
 int main() {
@@ -107,8 +111,18 @@ int main() {
                 }
             _CP0_SET_COUNT(0);
             
+            I2C_multiread(0x6B, 0x20, data, 14); //may not even need to pass data here and can just save in the externed variable
+            temp =(data[1]<< 8) | data[0];
+            gyro_x =(data[3]<< 8) | data[2];
+            gyro_y =(data[5]<< 8) | data[4];
+            gyro_z =(data[7]<< 8) | data[6];
+            accel_x =(data[9]<< 8) | data[8];
+            accel_y =(data[11]<< 8) | data[10];
+            accel_z =(data[13]<< 8) | data[12];
+            
+
             }       
-                
+
     }
      
 }
