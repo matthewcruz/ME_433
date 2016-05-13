@@ -128,9 +128,10 @@ int main() {
         // move to next location on screen
         i++;
     }
+    i=0;
     sprintf(message, "Y is: ");
     while(message[i]){
-        disp_char(1 + i*6, 3+9, message[i]);
+        disp_char(1 + i*6, 12, message[i]);
         // move to next location on screen
         i++;
     }
