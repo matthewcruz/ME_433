@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_f9fd83f999a6921be9a05d3cfcddeb8fabb21aff.jar" />
+    </item>
+    <item
+        jar="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_b1a7065016c67ff91ab9e34eb57ff0323ddcc46e.jar" />
+    </item>
+    <item
+        jar="/home/mtcruz/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_29e6d14f6d06c650ab1fd6ea58e0401b9f0be417.jar" />
+    </item>
+    <item
+        jar="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_5f2c42d7dc40df524c2fe1829e05b89a7e269b99.jar" />
+    </item>
+    <item
+        jar="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_cd99d372882b1415dfab4d359750ec62bcbab72a.jar" />
+    </item>
+    <item
+        jar="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_0618928e038bd25a4f57dc8cb6ded7bb9b2e2bc0.jar" />
+    </item>
+    <item
+        jar="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f12a3e4bea7f85ecb71329d6b5059f8f7c694046">
+        <dex dex="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/pre-dexed/debug/instant-run_ccf155f201bcdfabae421db69c06f9597f51ae48.jar" />
+    </item>
+    <item
+        jar="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ed7d69292337babd9c6608a2fb045ad8a77ae834">
+        <dex dex="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/AndroidCam/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_2a9243eca8b6ce4c8217fa24f7a89aa61602ce5f.jar" />
+    </item>
+
+</items>
