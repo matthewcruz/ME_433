@@ -37,7 +37,7 @@
 
         <TextView
             android:id="@+id/textViewRed"
-            android:text="Red Threshold: 50"
+            android:text="Red Threshold: 28"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
@@ -54,7 +54,7 @@
 
         <TextView
             android:id="@+id/textViewGreen"
-            android:text="Green Threshold: 50"
+            android:text="Green Threshold: 74"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />

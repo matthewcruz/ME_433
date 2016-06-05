@@ -65,12 +65,12 @@ int main() {
 	    // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
 		// remember the core timer runs at half the CPU speed
                 
-        if (_CP0_GET_COUNT()>24000){
+        if (_CP0_GET_COUNT()>2400000){
             //change LED state
             LATAbits.LATA4 = !LATAbits.LATA4;
             //LATAbits.LATA4 = 0;
             _CP0_SET_COUNT(0);
-        //LATAbits.LATA4 =1;
+        //LATAbits.LATA4 =1;j
         }
                 
     }
