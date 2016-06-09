@@ -1,0 +1,5 @@
+My robot used a single line from the camera and did color thresholding.
+The threshold looked at pixels that had a green value less than a number and red values greater than a number. It drove the motors at full speed unless the center of the thresholded pixels was greater or lesss than 50% across the screen. when greater one wheel would slow to compensate. The compensation was proporitonal to how far away from 50% the center of thresholded values were.
+These thresholds were controlled by sliders. The result of the controls was a PWM signal that allowed the motors to increase or decrease speed fast enought to stay on target witht he line centered. This information was sent to a PIC with a single integer from 0 to 100 representing % across the screen from left to right. This controlled the speed of the motors as mentioned above with a specific P gain. 
+
+This project turned out great for me. I was happy to see my pig bot run!.
