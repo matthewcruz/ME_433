@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/usb-serial-for-android/usbSerialExamples/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="19.1.0"
+        sha1="bf5dd0959cb89ccc75ed08b6decb0b8c1eb733e0">
+        <dex dex="/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/usb-serial-for-android/usbSerialExamples/build/intermediates/pre-dexed/debug/instant-run-bootstrap_7b10e66b13b0679d837c0e396c932f328b059cf9.jar" />
+    </item>
+
+</items>

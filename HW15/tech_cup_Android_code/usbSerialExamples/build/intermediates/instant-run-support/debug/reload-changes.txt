@@ -1,0 +1,2 @@
+CHANGED,/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/usb-serial-for-android/usbSerialExamples/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/hoho/android/usbserial/examples/SerialConsoleActivity$override.class
+CHANGED,/home/mtcruz/Coursework/ME433_Applied_Mechatronics/HW14/usb-serial-for-android/usbSerialExamples/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
